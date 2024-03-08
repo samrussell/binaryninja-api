@@ -1485,6 +1485,8 @@ class Architecture(metaclass=_ArchitectureMetaClass):
 			return reg.index
 		elif isinstance(reg, int):
 			return RegisterIndex(reg)
+		elif isinstance(reg, RegisterIndex):
+			return reg
 		raise Exception("Attempting to get register index of non-existant register")
 
 	def get_reg_stack_index(self, reg_stack: RegisterStackType) -> RegisterStackIndex:
